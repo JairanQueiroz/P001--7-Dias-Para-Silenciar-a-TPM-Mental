@@ -73,4 +73,69 @@ document.addEventListener('DOMContentLoaded', () => {
             secondsSpan.textContent = s.toString().padStart(2, '0');
         }, 1000);
     }
+
+    // 5. Social Proof Notifications
+    const names = ["Ana", "Beatriz", "Carla", "Daniela", "Eduarda", "Fernanda", "Gabriela", "Helena", "Isabela", "Julia", "Larissa", "Mariana", "Natalia", "Olivia", "Paula", "Renata", "Sofia", "Thais", "Vanessa", "Yasmin", "Camila", "Leticia", "Bruna", "Amanda"];
+    const cities = ["São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba", "Porto Alegre", "Salvador", "Fortaleza", "Brasília", "Recife", "Manaus", "Goiânia", "Belém", "Vitória", "Florianópolis"];
+    
+    const notificationContainer = document.createElement('div');
+    notificationContainer.className = 'notification-container';
+    document.body.appendChild(notificationContainer);
+
+    function showNotification() {
+        const name = names[Math.floor(Math.random() * names.length)];
+        
+        const toast = document.createElement('div');
+        toast.className = 'social-notification';
+        toast.innerHTML = `
+            <div class="icon"><iconify-icon icon="solar:cart-check-bold"></iconify-icon></div>
+            <div class="content">
+                <strong>${name}</strong>
+                acabou de garantir o Protocolo!
+            </div>
+        `;
+        
+        notificationContainer.appendChild(toast);
+        
+        setTimeout(() => toast.classList.add('active'), 100);
+        
+        setTimeout(() => {
+            toast.classList.remove('active');
+            setTimeout(() => toast.remove(), 600);
+        }, 5000);
+    }
+
+    // Initial delay then repeat
+    setTimeout(() => {
+        showNotification();
+        setInterval(showNotification, 12000 + Math.random() * 10000);
+    }, 4000);
+
+    // 6. Online Counter
+    const onlineCounter = document.createElement('div');
+    onlineCounter.className = 'online-counter';
+    let baseOnline = 10;
+    onlineCounter.innerHTML = `
+        <div class="online-dot"></div>
+        <span><span id="online-number">${baseOnline}</span> pessoas online agora</span>
+    `;
+    document.body.appendChild(onlineCounter);
+
+    const progressionInterval = setInterval(() => {
+        if (baseOnline >= 51) {
+            // Pequenas flutuações após chegar em 51
+            const fluctuation = Math.floor(Math.random() * 3) - 1; // -1, 0, +1
+            baseOnline += fluctuation;
+            if (baseOnline > 55) baseOnline = 51;
+            if (baseOnline < 48) baseOnline = 51;
+        } else {
+            const increments = [3, 7, 10];
+            const inc = increments[Math.floor(Math.random() * increments.length)];
+            baseOnline += inc;
+            if (baseOnline > 51) baseOnline = 51;
+        }
+        
+        const numSpan = document.getElementById('online-number');
+        if(numSpan) numSpan.textContent = baseOnline;
+    }, 60000); // A cada 1 minuto
 });
