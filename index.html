@@ -23,8 +23,7 @@
 
             <h1 class="h1-display">
                 <div class="hero-text-mask"><span class="block">Pare de sentir</span></div><br>
-                <div class="hero-text-mask"><span class="block text-transparent-stroke" data-text="que sua mente">que
-                        sua mente</span></div><br>
+                <div class="hero-text-mask"><span class="block" style="color: #8e5a63;">que sua mente</span></div><br>
                 <div class="hero-text-mask"><span class="block">destrói você.</span></div>
             </h1>
 
@@ -103,7 +102,7 @@
             <span class="section-label font-mono text-center">02 / A Solução</span>
             <h2 class="h2-section text-center mb-12">Imagine voltar a ser você mesma.</h2>
 
-            <div class="grid-4">
+            <div class="grid-4 mobile-carousel">
                 <div class="glow-card hover-lift motion-enter delay-100" style="padding: 2rem; text-align: center;">
                     <div class="icon-box mx-auto"><iconify-icon icon="solar:leaf-linear"></iconify-icon></div>
                     <h3 style="margin-bottom: 0.5rem;">Paz Mental</h3>
@@ -139,14 +138,17 @@
                 <span class="text-transparent-stroke font-bold" data-text="colapso emocional hormonal">colapso emocional
                     hormonal</span>.
             </p>
-            <div class="flex justify-center flex-wrap gap-4 motion-enter delay-200"
-                style="width: 100%; max-width: 900px; margin: 0 auto;">
-                <div class="badge-mono" style="justify-content: center;"><iconify-icon
-                        icon="solar:star-fall-linear"></iconify-icon> Atua no Emocional</div>
-                <div class="badge-mono" style="justify-content: center;"><iconify-icon
-                        icon="solar:star-fall-linear"></iconify-icon> Combate a Inflamação</div>
-                <div class="badge-mono" style="justify-content: center;"><iconify-icon
-                        icon="solar:star-fall-linear"></iconify-icon> Acalma o Caos</div>
+            <div class="badges-marquee-container motion-enter delay-200">
+                <div class="badges-marquee-track">
+                    <!-- Grupo 1 -->
+                    <div class="badge-mono"><iconify-icon icon="solar:star-fall-linear"></iconify-icon> Atua no Emocional</div>
+                    <div class="badge-mono"><iconify-icon icon="solar:star-fall-linear"></iconify-icon> Combate a Inflamação</div>
+                    <div class="badge-mono"><iconify-icon icon="solar:star-fall-linear"></iconify-icon> Acalma o Caos</div>
+                    <!-- Grupo 2 (Duplicado para o loop) -->
+                    <div class="badge-mono"><iconify-icon icon="solar:star-fall-linear"></iconify-icon> Atua no Emocional</div>
+                    <div class="badge-mono"><iconify-icon icon="solar:star-fall-linear"></iconify-icon> Combate a Inflamação</div>
+                    <div class="badge-mono"><iconify-icon icon="solar:star-fall-linear"></iconify-icon> Acalma o Caos</div>
+                </div>
             </div>
         </div>
     </section>
@@ -262,7 +264,7 @@
             <span class="section-label font-mono text-center">Bônus Exclusivos</span>
             <h2 class="h2-section text-center mb-12">Presentes para acelerar seus resultados</h2>
 
-            <div class="grid-2">
+            <div class="grid-2 mobile-carousel">
                 <!-- Bonus 1 -->
                 <div class="glow-card bonus-card hover-lift motion-enter delay-100">
                     <div class="bonus-badge">Presente</div>
@@ -829,30 +831,23 @@
                             <div class="price-tag" style="color: #fff;"><span class="price-currency">R$</span>37,90
                             </div>
                             <ul class="feature-list mt-8">
-                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"
-                                        style="color: var(--accent-primary);"></iconify-icon> 7 Dias Para Silenciar a
+                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> 7 Dias Para Silenciar a
                                     TPM Mental</li>
-                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"
-                                        style="color: var(--accent-primary);"></iconify-icon> Alimentos anti-caos
+                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> Alimentos anti-caos
                                     hormonal</li>
-                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"
-                                        style="color: var(--accent-primary);"></iconify-icon> Checklist modo
+                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> Checklist modo
                                     sobrevivência</li>
-                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"
-                                        style="color: var(--accent-primary);"></iconify-icon> Exercícios de emergência
+                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> Exercícios de emergência
                                     emocional</li>
-                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"
-                                        style="color: var(--accent-primary);"></iconify-icon> Redução de gatilhos
+                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> Redução de gatilhos
                                     inflamatórios</li>
-                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"
-                                        style="color: var(--accent-primary);"></iconify-icon> Rotina anti-crise
+                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> Rotina anti-crise
                                     emocional</li>
-                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"
-                                        style="color: var(--accent-primary);"></iconify-icon> Técnica de estabilização
+                                <li style="color: rgba(255,255,255,0.8);"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> Técnica de estabilização
                                     mental pré-menstrual</li>
                                 <li style="color: rgba(255,255,255,0.8); align-items: flex-start;">
                                     <iconify-icon icon="solar:check-circle-bold"
-                                        style="color: var(--accent-primary); margin-top: 2px;"></iconify-icon>
+                                        style="margin-top: 2px;"></iconify-icon>
                                     <div>
                                         <strong style="color: #fff;">🎁 BÔNUS 1</strong>
                                         <ul
