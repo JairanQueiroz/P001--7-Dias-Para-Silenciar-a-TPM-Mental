@@ -7,11 +7,15 @@
     --text-muted: #6B6570;
     --text-light: #A39EAA;
     --border-light: rgba(181, 131, 141, 0.15);
-    --accent-primary: #B5838D; /* rosa queimado */
+    --accent-primary: #9b6a73; /* rosa queimado mais saturado conforme imagem */
     --accent-secondary: #EAE4F2; /* lilás suave */
     --accent-glow: rgba(181, 131, 141, 0.15);
     
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
