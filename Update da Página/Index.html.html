@@ -257,14 +257,14 @@
       padding: 100px 20px 80px;
       position: relative;
       overflow: hidden;
-      background-image: linear-gradient(to bottom, rgba(15, 10, 20, 0.7), rgba(15, 10, 20, 0.9)), url('Imagens/hero_bg.png');
+      background-image: linear-gradient(to bottom, rgba(15, 10, 20, 0.7), rgba(15, 10, 20, 0.9)), url('https://i.postimg.cc/9fK3xjjV/Chat-GPT-Image-9-de-mai-de-2026-19-20-54.png');
       background-size: cover;
       background-position: center;
     }
     .hero-inner { position: relative; z-index: 10; }
     .hero h1 {
       font-family: var(--fonte-titulo);
-      font-size: clamp(28px, 8vw, 84px); /* Título menor no celular para não confundir */
+      font-size: clamp(38px, 8vw, 84px);
       font-weight: 800;
       line-height: 0.95;
       color: #fff;
@@ -279,7 +279,7 @@
       margin-bottom: 10px;
     }
     .hero-sub {
-      font-size: clamp(14px, 4vw, 18px); /* Sub-texto menor e mais elegante no mobile */
+      font-size: clamp(16px, 2.5vw, 20px);
       color: var(--cor-texto-suave);
       max-width: 560px;
       margin: 0 auto 40px;
@@ -390,57 +390,6 @@
       margin-bottom: 12px;
       transition: transform 0.4s var(--ease-out-expo);
     }
-
-    .depoimentos-grid-reais {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-top: 50px;
-      justify-items: center;
-    }
-    
-    .smartphone-mockup {
-      width: 280px;
-      height: 580px;
-      background: #000;
-      border: 8px solid #1a1a1a;
-      border-radius: 40px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.05);
-      transition: transform 0.4s var(--ease-out-expo);
-    }
-    
-    .smartphone-mockup::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 50%; transform: translateX(-50%);
-      width: 120px; height: 25px;
-      background: #000;
-      border-radius: 0 0 15px 15px;
-      z-index: 20;
-    }
-
-    .smartphone-mockup img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-    }
-
-    .smartphone-mockup:hover {
-      transform: translateY(-15px) scale(1.02);
-      border-color: var(--cor-primaria-forte);
-      box-shadow: 0 40px 80px rgba(147, 51, 234, 0.3);
-    }
-
-    @media (max-width: 768px) {
-      .smartphone-mockup {
-        width: 240px;
-        height: 500px;
-      }
-    }
     
     .glow-card:hover .icone-3d-real {
       transform: scale(1.15) translateY(-5px);
@@ -479,13 +428,12 @@
     }
     .mecanismo-nome {
       font-family: var(--fonte-titulo);
-      font-size: clamp(24px, 5vw, 48px); /* Reduzi o mínimo para caber melhor no mobile */
+      font-size: clamp(32px, 5vw, 48px);
       font-weight: 800;
       color: var(--cor-acento);
       margin-bottom: 16px;
       letter-spacing: -0.05em;
     }
-    .mecanismo-nome span { white-space: nowrap; } /* Garante que o nome do protocolo não quebre */
     .pilares-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -630,16 +578,11 @@
       flex: 1;
     }
     .plano-item {
-      display: flex; align-items: center; justify-content: flex-start; gap: 10px;
-      font-size: 13px; color: var(--cor-texto);
-      padding: 8px 0;
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--cor-texto);
+      padding: 7px 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
-      white-space: nowrap !important;
-      text-align: left;
-    }
-    .plano-item span:not(.pi-check):not(.pi-bonus) {
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.4;
     }
     .plano-item:last-child { border-bottom: none; }
     .plano-item .pi-check { color: #4ade80; flex-shrink: 0; margin-top: 2px; }
@@ -669,9 +612,8 @@
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
       color: var(--cor-texto);
-      animation: pulseGlow 4s ease-in-out infinite; /* Adicionado pulso suave */
     }
-    .btn-plano-basico:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+    .btn-plano-basico:hover { background: rgba(255,255,255,0.12); }
     .btn-plano-destaque {
       background: linear-gradient(135deg, var(--cor-cta), #6d28d9);
       color: #fff;
@@ -722,25 +664,16 @@
       border-bottom: 1px solid rgba(255,255,255,0.05);
       gap: 16px;
       transition: background 0.2s;
-      white-space: nowrap !important;
     }
     .stack-item:hover { background: rgba(147,51,234,0.05); }
     .stack-item:last-child { border-bottom: none; }
-    .stack-item-info { 
-      display: flex; align-items: center; gap: 14px; 
-      flex: 1; 
-      overflow: hidden;
-      white-space: nowrap !important;
-    }
+    .stack-item-info { display: flex; align-items: center; gap: 14px; }
     .stack-item-info .check { color: #4ade80; font-size: 20px; flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(74,222,128,0.3)); }
     .stack-item-info .nome { 
       font-size: 16px; 
       color: var(--cor-texto); 
       font-weight: 500; 
       letter-spacing: -0.02em;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      flex: 1;
     }
     .stack-item-info .tag-bonus {
       font-size: 9px; font-weight: 700; letter-spacing: 0.15em;
@@ -794,34 +727,6 @@
       text-shadow: 0 0 40px rgba(147,51,234,0.3);
     }
     .stack-preco-final .obs { font-size: 14px; color: var(--cor-texto-suave); margin-top: 20px; font-weight: 400; opacity: 0.7; }
-
-    /* AJUSTES MOBILE DE ALTA PRIORIDADE */
-    @media (max-width: 640px) {
-      .stack-itens { padding: 12px 0 !important; }
-      .stack-item { 
-        padding: 12px 18px !important; 
-        white-space: nowrap !important;
-      }
-      .stack-item-info { 
-        gap: 8px !important; 
-        white-space: nowrap !important;
-      }
-      .stack-item-info .check { font-size: 16px !important; margin-top: 2px !important; }
-      .stack-item-info .nome { 
-        font-size: 13px !important; 
-        line-height: 1.3 !important; 
-        white-space: normal !important;
-      }
-      .stack-item-valor { 
-        font-size: 14px !important; 
-        margin-top: 1px !important;
-        text-align: right !important;
-      }
-      .stack-item-valor span { font-size: 11px !important; }
-      
-      .stack-total { padding: 20px 24px !important; }
-      .stack-total-valor { font-size: 20px !important; }
-    }
 
     /* =============================================
        SEÇÃO 5: DEPOIMENTOS
@@ -1018,16 +923,8 @@
       text-align: left;
     }
     .resumo-item {
-      display: flex; align-items: center; justify-content: space-between; gap: 8px;
-      font-size: 13px; color: var(--cor-texto);
-      white-space: nowrap !important;
-      width: 100%;
-      padding: 6px 0;
-    }
-    .resumo-item span:first-of-type {
-      flex: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 15px; color: var(--cor-texto);
     }
     .resumo-item .check { color: #4ade80; }
 
@@ -1126,33 +1023,6 @@
       .stack-itens { padding: 16px 20px; }
       .stack-header { padding: 20px; }
       .stack-total { flex-direction: column; align-items: center; }
-      
-      /* Botões Mobile de Alta Prioridade */
-      .btn-cta { font-size: 14px !important; padding: 12px 18px !important; width: 100% !important; max-width: 280px !important; margin: 0 auto !important; }
-      .btn-cta-grande { font-size: 15px !important; padding: 14px 20px !important; }
-      .btn-cta .seta { font-size: 14px !important; }
-      
-      .btn-plano { font-size: 13px !important; padding: 12px 14px !important; }
-
-      /* Itens de Bônus e Planos em Linha Única no Mobile */
-      .plano-itens { padding: 16px 20px !important; }
-      .plano-item { 
-        font-size: 11px !important; 
-        gap: 6px !important; 
-        padding: 5px 0 !important; 
-        white-space: nowrap !important;
-        align-items: center !important;
-      }
-      .plano-item .pi-bonus { font-size: 8px !important; padding: 1px 5px !important; }
-      
-      .resumo-oferta { padding: 16px 20px !important; width: 100% !important; max-width: 320px !important; margin: 16px auto !important; }
-      .resumo-item { 
-        font-size: 11px !important; 
-        gap: 6px !important; 
-        white-space: nowrap !important;
-        align-items: center !important;
-      }
-      .resumo-item .check { font-size: 14px !important; }
     }
   </style>
 </head>
@@ -1184,28 +1054,42 @@
   <div class="aura-blob" style="bottom: 10%; right: 10%; width: 500px; height: 500px; background: rgba(192, 132, 232, 0.1); animation-delay: -2s;"></div>
   
   <div class="hero-inner container fade-in">
+    <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 8px; padding-left: 12px;">
+      <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="✦">
+      <span>Protocolo Feminino Exclusivo</span>
+    </div>
+
     <h1>
+      <span class="linha">
+        <div class="hero-text-mask"><span>Seu corpo não está</span></div>
+      </span>
+      <span class="linha">
+        <div class="hero-text-mask"><span class="text-transparent-stroke" data-text="te traindo.">te traindo.</span></div>
+      </span>
+      <span class="linha">
+        <div class="hero-text-mask" style="transition-delay: 0.3s;"><span>Ele está pedindo</span></div>
+      </span>
       <span class="linha" style="color: var(--cor-acento);">
-        <div class="hero-text-mask"><span>7 dias para silenciar o caos hormonal</span></div>
-      </span>
-      <span class="linha">
-        <div class="hero-text-mask" style="transition-delay: 0.1s; font-size: 0.7em;"><span>antes da próxima TPM chegar.</span></div>
-      </span>
-      <span class="linha">
-        <div class="hero-text-mask" style="transition-delay: 0.2s; font-size: 0.8em; margin-top: 15px;"><span>Descubra o Protocolo</span></div>
-      </span>
-      <span class="linha">
-        <div class="hero-text-mask" style="transition-delay: 0.3s;"><span class="text-transparent-stroke" data-text="RESET Hormonal" style="--cor-stroke-fill: var(--cor-acento);">RESET Hormonal</span></div>
+        <div class="hero-text-mask" style="transition-delay: 0.5s;"><span>socorro do jeito errado.</span></div>
       </span>
     </h1>
 
     <p class="hero-sub delay-1 fade-in">
-      Seu corpo não está te traindo. Ele está pedindo socorro.
+      Descubra o <strong>Protocolo RESET Hormonal</strong> — o método de 7 dias que está
+      ajudando mulheres a chegarem à próxima TPM sem crises, sem culpa e sem aquela
+      sensação de virar outra pessoa.
     </p>
+
+    <!-- PRECO — mova este bloco para DEPOIS dos depoimentos se quiser construir mais valor antes -->
+    <div class="hero-preco delay-2 fade-in">
+      <span class="preco-riscado">De R$ 47,00</span>
+      <span class="preco-atual">R$ 9,99</span>
+      <span class="badge-desconto">-79% OFF</span>
+    </div>
 
     <div class="beam-btn-wrapper delay-3 fade-in">
       <div class="beam-spinner"></div>
-      <a href="https://pay.kiwify.com.br/3uldggy" class="btn-cta btn-cta-grande" style="background: #9333ea; border: none; position: relative; z-index: 1;">
+      <a href="https://pay.kiwify.com.br/3uldggy" class="btn-cta btn-cta-grande" style="background: var(--cor-fundo); border: 1px solid rgba(147,51,234,0.3);">
         Quero silenciar minha TPM agora <span class="seta">→</span>
       </a>
     </div>
@@ -1213,10 +1097,10 @@
 
 
     <div class="hero-selos delay-4 fade-in">
-      <div class="hero-selo"><img src="Imagens/icon_shield_3d_1778700095216.png" style="width: 32px; height: 32px; object-fit: contain;" alt="Seguro"> Compra 100% segura</div>
-      <div class="hero-selo"><img src="Imagens/icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="Raio"> Acesso imediato</div>
-      <div class="hero-selo"><img src="Imagens/icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="Estrela"> Garantia de 7 dias</div>
-      <div class="hero-selo"><img src="Imagens/icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="📱"> Acesso pelo app</div>
+      <div class="hero-selo"><img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_shield_3d_1778700095216.png" style="width: 32px; height: 32px; object-fit: contain;" alt="Seguro"> Compra 100% segura</div>
+      <div class="hero-selo"><img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="Raio"> Acesso imediato</div>
+      <div class="hero-selo"><img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="Estrela"> Garantia de 7 dias</div>
+      <div class="hero-selo"><img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="📱"> Acesso pelo app</div>
     </div>
   </div>
 </section>
@@ -1234,7 +1118,7 @@
   
   <div class="container" style="text-align:center; position: relative; z-index: 10;">
     <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 10px; padding-left: 12px;">
-      <img src="Imagens/icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="😔">
+      <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="😔">
       <span>Você se reconhece aqui?</span>
     </div>
     <h2 class="titulo-secao">
@@ -1245,27 +1129,27 @@
 
     <ul class="lista-dores">
       <li class="glow-card">
-        <img src="Imagens/icon_fire_3d_1778699962776.png" alt="Raiva" class="icone-3d-real">
+        <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_fire_3d_1778699962776.png" alt="Raiva" class="icone-3d-real">
         <div>Raiva do nada — e culpa enorme depois de explodir</div>
       </li>
       <li class="glow-card">
-        <img src="Imagens/icon_cry_3d_1778699985527.png" alt="Choro" class="icone-3d-real">
+        <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_cry_3d_1778699985527.png" alt="Choro" class="icone-3d-real">
         <div>Choro sem motivo aparente. Tristeza que parece não ter fundo</div>
       </li>
       <li class="glow-card">
-        <img src="Imagens/icon_brain_3d_1778700003756.png" alt="Neblina Mental" class="icone-3d-real">
+        <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_brain_3d_177870003756.png" alt="Neblina Mental" class="icone-3d-real">
         <div>Neblina mental — não consegue pensar direito, esquece tudo</div>
       </li>
       <li class="glow-card">
-        <img src="Imagens/icon_anxiety_3d_1778700016770.png" alt="Ansiedade" class="icone-3d-real">
+        <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_anxiety_3d_1778700016770.png" alt="Ansiedade" class="icone-3d-real">
         <div>Ansiedade que paralisa, coração acelerado por nada</div>
       </li>
       <li class="glow-card">
-        <img src="Imagens/icon_heartbroken_3d_1778700029000.png" alt="Medo" class="icone-3d-real">
+        <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_heartbroken_3d_1778700029000.png" alt="Medo" class="icone-3d-real">
         <div>Medo de afastar as pessoas que você ama por causa dos surtos</div>
       </li>
       <li class="glow-card">
-        <img src="Imagens/icon_chocolate_3d_1778700045375.png" alt="Compulsão" class="icone-3d-real">
+        <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_chocolate_3d_1778700045375.png" alt="Compulsão" class="icone-3d-real">
         <div>Compulsão por doce que você odeia ter, mas não consegue parar</div>
       </li>
     </ul>
@@ -1299,7 +1183,7 @@
 
   <div class="container" style="text-align:center; position: relative; z-index: 10;">
     <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 8px; padding-left: 12px;">
-      <img src="Imagens/icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="💡">
+      <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_star_3d_1778700082588.png" style="width: 32px; height: 32px; object-fit: contain;" alt="💡">
       <span>O que realmente funciona</span>
     </div>
     <h2 class="titulo-secao">
@@ -1325,21 +1209,21 @@
       <div class="pilares-grid">
         <div class="pilar glow-card">
           <div class="pilar-icone">
-            <img src="Imagens/icon_zen_3d_1778700369930.png" alt="Emocional" class="icone-3d-real">
+            <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_zen_3d_1778700369930.png" alt="Emocional" class="icone-3d-real">
           </div>
           <h4>Eixo Emocional</h4>
           <p>Técnicas de regulação que interrompem crises em 5 minutos</p>
         </div>
         <div class="pilar glow-card">
           <div class="pilar-icone">
-            <img src="Imagens/icon_salad_3d_1778700383849.png" alt="Nutricional" class="icone-3d-real">
+            <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_salad_3d_1778700383849.png" alt="Nutricional" class="icone-3d-real">
           </div>
           <h4>Eixo Nutricional</h4>
           <p>Alimentos que reduzem inflamação hormonal e compulsão</p>
         </div>
         <div class="pilar glow-card">
           <div class="pilar-icone">
-            <img src="Imagens/icon_moon_3d_1778700396973.png" alt="Ritmo" class="icone-3d-real">
+            <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_moon_3d_1778700396973.png" alt="Ritmo" class="icone-3d-real">
           </div>
           <h4>Eixo do Ritmo</h4>
           <p>Rotina baseada no ciclo para cada fase emocional do mês</p>
@@ -1350,7 +1234,7 @@
     <!-- AUTORIDADE DO PRODUTOR — substitua pelo nome e história real -->
     <div class="autoridade-box delay-3 fade-in">
       <div class="autoridade-foto">
-        <img src="Imagens/06- img.png" alt="Dra. [Seu Nome]">
+        <img src="../Imagens/06-%20img.png" alt="Dra. [Seu Nome]">
       </div>
       <div class="autoridade-texto">
         <h4>Dra. Érica Thais — Especialista em Saúde Hormonal</h4>
@@ -1377,7 +1261,7 @@
 
   <div class="container" style="text-align:center; position: relative; z-index: 10;">
     <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 8px; padding-left: 12px;">
-      <img src="Imagens/icon_gift_3d_1778701030648.png" style="width: 32px; height: 32px; object-fit: contain;" alt="🎁">
+      <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_gift_3d_1778701030648.png" style="width: 32px; height: 32px; object-fit: contain;" alt="🎁">
       <span>Tudo que você vai receber</span>
     </div>
     <h2 class="titulo-secao">
@@ -1478,7 +1362,7 @@
 
   <div class="container-wide" style="text-align:center; position: relative; z-index: 10;">
     <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 8px; padding-left: 12px;">
-      <img src="Imagens/icon_heart_3d_1778701281583.png" style="width: 32px; height: 32px; object-fit: contain;" alt="💜">
+      <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_heart_3d_1778701281583.png" style="width: 32px; height: 32px; object-fit: contain;" alt="💜">
       <span>Histórias reais</span>
     </div>
     <h2 class="titulo-secao">
@@ -1488,23 +1372,23 @@
     <div class="divisor"></div>
 
     <div class="depoimentos-grid-reais">
-      <div class="smartphone-mockup">
-        <img src="Prova Real/1.png" alt="Prova Social 1">
+      <div class="prova-social-item glow-card">
+        <img src="https://i.postimg.cc/2j13tN4t/1.png" alt="Prova Social 1">
       </div>
-      <div class="smartphone-mockup">
-        <img src="Prova Real/2.png" alt="Prova Social 2">
+      <div class="prova-social-item glow-card">
+        <img src="https://i.postimg.cc/BZjtzfxk/2.png" alt="Prova Social 2">
       </div>
-      <div class="smartphone-mockup">
-        <img src="Prova Real/3.png" alt="Prova Social 3">
+      <div class="prova-social-item glow-card">
+        <img src="https://i.postimg.cc/nVXMWf4Z/5.png" alt="Prova Social 3">
       </div>
-      <div class="smartphone-mockup">
-        <img src="Prova Real/4.png" alt="Prova Social 4">
+      <div class="prova-social-item glow-card">
+        <img src="https://i.postimg.cc/bYZd5fQK/3.png" alt="Prova Social 4">
       </div>
-      <div class="smartphone-mockup">
-        <img src="Prova Real/5.png" alt="Prova Social 5">
+      <div class="prova-social-item glow-card">
+        <img src="https://i.postimg.cc/50V59NbZ/7.png" alt="Prova Social 5">
       </div>
-      <div class="smartphone-mockup">
-        <img src="Prova Real/7.png" alt="Prova Social 7">
+      <div class="prova-social-item glow-card">
+        <img src="https://i.postimg.cc/tTjdRC9Q/9.png" alt="Prova Social 6">
       </div>
     </div>
 
@@ -1524,7 +1408,7 @@
 
   <div class="container" style="text-align:center; position: relative; z-index: 10;">
     <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 8px; padding-left: 12px;">
-      <img src="Imagens/icon_cart_3d_1778701294924.png" style="width: 32px; height: 32px; object-fit: contain;" alt="🛒">
+      <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_cart_3d_1778701294924.png" style="width: 32px; height: 32px; object-fit: contain;" alt="🛒">
       <span>Escolha seu plano</span>
     </div>
     <h2 class="titulo-secao">
@@ -1633,12 +1517,9 @@
           </div>
         </div>
         <div class="plano-cta">
-          <div class="beam-btn-wrapper" style="width: 100%; border-radius: 100px;">
-            <div class="beam-spinner"></div>
-            <a href="https://pay.kiwify.com.br/rrRqcmn" class="btn-plano btn-plano-destaque" style="background: #9333ea; border: none; position: relative; z-index: 1;">
-              Quero a versão completa →
-            </a>
-          </div>
+          <a href="https://pay.kiwify.com.br/rrRqcmn" class="btn-plano btn-plano-destaque">
+            Quero a versão completa →
+          </a>
           <div class="plano-garantia-mini">🛡️ Garantia de 7 dias · Risco zero</div>
         </div>
       </div>
@@ -1659,7 +1540,7 @@
     <div class="urgencia-box">
       <div class="urgencia-content">
         <div class="urgencia-icon">
-          <img src="Imagens/icon_fire_3d_1778699962776.png" style="width: 100px; height: 100px; object-fit: contain;" alt="🔥">
+          <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_fire_3d_1778699962776.png" style="width: 100px; height: 100px; object-fit: contain;" alt="🔥">
         </div>
         <div class="urgencia-texts">
           <h3>
@@ -1673,13 +1554,9 @@
           </p>
         </div>
       </div>
-    <div style="text-align: center; margin-top: 24px;">
-      <div class="beam-btn-wrapper delay-3 fade-in">
-        <div class="beam-spinner"></div>
-        <a href="https://pay.kiwify.com.br/rrRqcmn" class="btn-cta btn-cta-grande" style="background: #9333ea; border: none; position: relative; z-index: 1;">
-          Quero estar preparada <span class="seta">→</span>
-        </a>
-      </div>
+      <a href="https://pay.kiwify.com.br/rrRqcmn" class="btn-cta btn-cta-grande">
+        Quero estar preparada <span class="seta">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1696,7 +1573,7 @@
 
     <div style="text-align:center; margin-bottom: 24px;">
       <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 8px; padding-left: 12px;">
-        <img src="Imagens/icon_shield_3d_1778700095216.png" style="width: 32px; height: 32px; object-fit: contain;" alt="🛡️">
+        <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_shield_3d_1778700095216.png" style="width: 32px; height: 32px; object-fit: contain;" alt="🛡️">
         <span>Risco zero</span>
       </div>
       <h2 class="titulo-secao">
@@ -1706,7 +1583,7 @@
       <div class="divisor"></div>
       
       <div class="garantia-flex">
-        <img src="Imagens/selo_garantia.png" class="garantia-selo-img" alt="Selo 7 Dias Garantia">
+        <img src="https://i.postimg.cc/zvWFqbRk/10.png" class="garantia-selo-img" alt="Selo 7 Dias Garantia">
         <div class="garantia-texto-wrapper">
           <p>
             O seu investimento está 100% protegido. Se em até 7 dias você sentir que
@@ -1732,7 +1609,7 @@
 
   <div class="oferta-final-inner container" style="position: relative; z-index: 10;">
     <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 8px; padding-left: 12px;">
-      <img src="Imagens/icon_gift_3d_1778701030648.png" style="width: 32px; height: 32px; object-fit: contain;" alt="✨">
+      <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_gift_3d_1778701030648.png" style="width: 32px; height: 32px; object-fit: contain;" alt="✨">
       <span>Sua decisão</span>
     </div>
     <h2 class="titulo-secao">
@@ -1768,17 +1645,14 @@
       Ou comece pelo plano básico por R$ 9,99
     </div>
 
-    <div class="beam-btn-wrapper delay-3 fade-in">
-      <div class="beam-spinner"></div>
-      <a href="https://pay.kiwify.com.br/rrRqcmn" class="btn-cta btn-cta-grande" style="background: #9333ea; border: none; position: relative; z-index: 1;">
-        Silenciar minha TPM agora <span class="seta">→</span>
-      </a>
-    </div>
+    <a href="https://pay.kiwify.com.br/rrRqcmn" class="btn-cta btn-cta-grande">
+      Silenciar minha TPM agora <span class="seta">→</span>
+    </a>
     <br/><br/>
     <div class="hero-selos">
-      <div class="hero-selo"><img src="Imagens/icon_shield_3d_1778700095216.png" style="width: 24px; height: 24px; object-fit: contain;" alt="Seguro"> Pagamento seguro</div>
-      <div class="hero-selo"><img src="Imagens/icon_star_3d_1778700082588.png" style="width: 24px; height: 24px; object-fit: contain;" alt="Raio"> Acesso imediato</div>
-      <div class="hero-selo"><img src="Imagens/icon_shield_3d_1778700095216.png" style="width: 24px; height: 24px; object-fit: contain;" alt="🛡️"> Garantia 7 dias</div>
+      <div class="hero-selo"><img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_shield_3d_1778700095216.png" style="width: 24px; height: 24px; object-fit: contain;" alt="Seguro"> Pagamento seguro</div>
+      <div class="hero-selo"><img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_star_3d_1778700082588.png" style="width: 24px; height: 24px; object-fit: contain;" alt="Raio"> Acesso imediato</div>
+      <div class="hero-selo"><img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_shield_3d_1778700095216.png" style="width: 24px; height: 24px; object-fit: contain;" alt="🛡️"> Garantia 7 dias</div>
     </div>
   </div>
 </section>
@@ -1794,7 +1668,7 @@
   <div class="container" style="position: relative; z-index: 10;">
     <div style="text-align:center; margin-bottom: 48px;">
       <div class="tag-superior" style="display: inline-flex; align-items: center; gap: 8px; padding-left: 12px;">
-        <img src="Imagens/icon_star_3d_1778700082588.png" style="width: 24px; height: 24px; object-fit: contain;" alt="❓">
+        <img src="C:\Users\jaira\.gemini\antigravity\brain\25384692-05f2-46c9-92e6-2dcc66c2edb3\icon_star_3d_1778700082588.png" style="width: 24px; height: 24px; object-fit: contain;" alt="❓">
         <span>Dúvidas frequentes</span>
       </div>
       <h2 class="titulo-secao">
@@ -1865,9 +1739,8 @@
       Nossa missão é ajudar mulheres a entenderem que não estão sozinhas.
     </p>
     <div class="footer-links">
-
-
-      <a href="politica/index.html" target="_blank">Política de Privacidade</a>
+      <a href="#">Termos de Uso</a>
+      <a href="#">Política de Privacidade</a>
       <a href="https://wa.me/5511920910805">Contato / Suporte</a>
     </div>
     <div class="footer-legal">
@@ -1886,54 +1759,17 @@
      ======================================== -->
 <script>
   // Lista de nomes para rotação da notificação social
-  const nomes = ['Mariana', 'Juliana', 'Camila', 'Fernanda', 'Beatriz', 'Letícia', 'Gabriela', 'Aline', 'Daniela', 'Renata', 'Patrícia', 'Luana', 'Amanda', 'Cláudia', 'Isabela', 'Carol', 'Vanessa', 'Tatiane', 'Priscila', 'Larissa'];
-  
-  let pessoasOnline = 5;
-  const saltos = [1, 3, 2, 1, 2, 4, 1, 7, 2, 5, 3]; // Progressão de crescimento
-  let saltoIdx = 0;
+  const nomes = ['Mariana', 'Juliana', 'Camila', 'Fernanda', 'Beatriz',
+                 'Letícia', 'Gabriela', 'Aline', 'Daniela', 'Renata',
+                 'Patrícia', 'Luana', 'Amanda', 'Cláudia', 'Isabela'];
 
+  let idx = 0;
   function atualizarNotif() {
-    const notif = document.getElementById('notif');
-    if (!notif) return;
-
-    // Efeito de fade out
-    notif.style.opacity = '0';
-    notif.style.transform = 'translateY(20px)';
-
-    setTimeout(() => {
-      const nomeSorteado = nomes[Math.floor(Math.random() * nomes.length)];
-      
-      // Lógica de Tempo (minutos ou horas)
-      let tempoTexto;
-      if (Math.random() > 0.7) {
-        tempoTexto = `há ${Math.floor(Math.random() * 3) + 1}h`;
-      } else {
-        tempoTexto = `há ${Math.floor(Math.random() * 55) + 2} min`;
-      }
-
-      // Lógica de Progressão Online
-      pessoasOnline += saltos[saltoIdx];
-      saltoIdx = (saltoIdx + 1) % saltos.length;
-
-      // Atualiza o conteúdo HTML
-      notif.innerHTML = `
-        <span class="notif-icon">💜</span>
-        <div>
-          <strong>${nomeSorteado}</strong> acabou de garantir o protocolo
-          <div style="color: var(--cor-texto-suave); font-size: 11px; margin-top: 2px;">${tempoTexto} · <span style="color: #4ade80; font-weight: 700;">● ${pessoasOnline} pessoas online</span></div>
-        </div>
-        <button class="notif-fechar" onclick="document.getElementById('notif').style.display='none'">✕</button>
-      `;
-
-      // Efeito de fade in
-      notif.style.opacity = '1';
-      notif.style.transform = 'translateY(0)';
-      notif.style.transition = 'all 0.5s ease';
-    }, 500);
+    idx = (idx + 1) % nomes.length;
+    const el = document.getElementById('notif-nome');
+    if (el) el.textContent = nomes[idx];
   }
-  
-  setInterval(atualizarNotif, 8000);
-  setTimeout(atualizarNotif, 3000);
+  setInterval(atualizarNotif, 6000);
 
   // Animação de entrada dos elementos ao rolar
   const observador = new IntersectionObserver((entries) => {

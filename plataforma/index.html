@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma - 7 Dias Para Silenciar a TPM Mental</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#9b6a73">
+    <link rel="apple-touch-icon" href="../app_icon.png">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --accent-primary: #9b6a73;
+            --accent-soft: rgba(155, 106, 115, 0.1);
+            --bg-light: #fdfbfc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-light);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background: #fff;
+            border-right: 1px solid rgba(155, 106, 115, 0.1);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+            transition: 0.3s;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 3rem;
+            min-height: 100vh;
+            background: #fdfbfc;
+            transition: all 0.3s ease;
+        }
+
+        /* Header Mobile Caprichado */
+        .mobile-header {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 0 1.5rem;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 500;
+            border-bottom: 1px solid rgba(155, 106, 115, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(155, 106, 115, 0.2);
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* Animação de Entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+        }
+
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .day-card {
+            background: #fff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(155, 106, 115, 0.06);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 1px solid rgba(155, 106, 115, 0.05);
+            text-decoration: none;
+            display: block;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .day-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(155, 106, 115, 0.15);
+            border-color: var(--accent-primary);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-content {
+            padding: 1.8rem;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                display: block;
+                overflow-x: hidden;
+            }
+
+            .mobile-header {
+                display: flex;
+                width: 100%;
+                padding: 0 20px;
+                box-sizing: border-box;
+                z-index: 2000;
+            }
+
+            .sidebar {
+                display: none;
+                left: -320px;
+                top: 0;
+                width: 280px;
+                z-index: 3000;
+                border-radius: 0;
+                transition: left 0.4s ease;
+            }
+
+            .sidebar.active {
+                display: flex;
+                left: 0;
+            }
+
+            .main-content {
+                margin-left: 0 !important;
+                padding: 20px !important;
+                padding-top: 100px !important;
+                width: 100% !important;
+                box-sizing: border-box;
+                min-height: 100vh;
+            }
+
+            .content-container {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+                font-weight: 800 !important;
+            }
+
+            .deliverables-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .day-card {
+                width: 100%;
+                box-shadow: 0 8px 25px rgba(155, 106, 115, 0.08);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-overlay" id="overlay"></div>
+
+    <header class="mobile-header">
+        <div style="font-weight: 800; color: var(--accent-primary); font-size: 1rem;">TPM MENTAL</div>
+        <button id="menuToggle" style="background: none; border: none; color: var(--accent-primary); cursor: pointer;">
+            <iconify-icon icon="solar:hamburger-menu-bold-duotone" style="font-size: 1.8rem;"></iconify-icon>
+        </button>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <div
+            style="font-weight: 800; color: var(--accent-primary); font-size: 1.2rem; margin-bottom: 2rem; letter-spacing: -0.5px;">
+            TPM MENTAL</div>
+        <nav style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="#inicio" class="sidebar-link active">
+                <iconify-icon icon="solar:home-2-bold-duotone" style="font-size: 1.5rem;"></iconify-icon> Início
+            </a>
+            <a href="#bonus" class="sidebar-link">
+                <iconify-icon icon="solar:gift-bold-duotone" style="font-size: 1.5rem;"></iconify-icon> Bônus
+            </a>
+            <div style="margin-top: auto; padding-top: 2rem;">
+                <a href="login.html" class="sidebar-link" style="color: #e11d48;">
+                    <iconify-icon icon="solar:logout-bold-duotone" style="font-size: 1.5rem;"></iconify-icon> Sair
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <style>
+        .sidebar-link {
+            text-decoration: none;
+            color: #6a5a5d;
+            /* Cinza rosado sofisticado */
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            border-radius: 14px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar-link iconify-icon {
+            color: var(--accent-primary);
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .sidebar-link:hover {
+            background: var(--accent-soft);
+            color: var(--accent-primary);
+        }
+
+        .sidebar-link:hover iconify-icon {
+            opacity: 1;
+        }
+
+        .sidebar-link:active {
+            transform: scale(0.96);
+        }
+
+        .sidebar-link.active {
+            background: var(--accent-soft);
+            color: var(--accent-primary);
+            font-weight: 700;
+        }
+
+        .sidebar-link.active iconify-icon {
+            opacity: 1;
+        }
+    </style>
+
+    <main class="main-content">
+        <div class="content-container" id="inicio">
+            <header style="margin-bottom: 3rem;">
+                <h1 style="font-size: 2.8rem; color: var(--text-main); margin-bottom: 0.5rem; line-height: 1.2;">Olá,
+                    seja bem-vinda! ✨</h1>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Sua jornada para o silêncio mental começa agora.
+                </p>
+            </header>
+
+            <section>
+                <h2
+                    style="margin-bottom: 2rem; font-size: 1.5rem; color: var(--text-main); display: flex; align-items: center; gap: 10px;">
+                    <iconify-icon icon="solar:medal-star-bold-duotone"
+                        style="color: var(--accent-primary);"></iconify-icon>
+                    Conteúdo Principal
+                </h2>
+                <div class="deliverables-grid">
+                    <a href="7-dias.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/principal.png');">
+                            <span class="card-badge">Principal</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>7 Dias Para Silenciar a TPM Mental</h3>
+                            <p>O protocolo completo para sua paz mental.</p>
+                        </div>
+                    </a>
+                    <a href="alimentos.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/alimentos.png');">
+                            <span class="card-badge">Nutrição</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Alimentos anti-caos hormonal</h3>
+                            <p>O que comer para estabilizar seu ciclo.</p>
+                        </div>
+                    </a>
+                    <a href="checklist.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/checklist.png');">
+                            <span class="card-badge">Guia</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Checklist modo sobrevivência</h3>
+                            <p>Passo a passo para os dias críticos.</p>
+                        </div>
+                    </a>
+                    <a href="exercicios.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/exercicios.png');">
+                            <span class="card-badge">Prática</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Exercícios de emergência emocional</h3>
+                            <p>Práticas rápidas para controle imediato.</p>
+                        </div>
+                    </a>
+                    <a href="gatilhos.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/gatilhos.png');">
+                            <span class="card-badge">Saúde</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Redução de gatilhos inflamatórios</h3>
+                            <p>Eliminando o que prejudica sua mente.</p>
+                        </div>
+                    </a>
+                    <a href="rotina.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/rotina.png');">
+                            <span class="card-badge">Hábito</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Rotina anti-crise emocional</h3>
+                            <p>Estrutura diária para estabilidade.</p>
+                        </div>
+                    </a>
+                    <a href="tecnica.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/tecnica.png');">
+                            <span class="card-badge">Técnica</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Técnica de estabilização mental pré-menstrual</h3>
+                            <p>Controle profundo de pensamentos.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section style="margin-top: 4rem;" id="bonus">
+                <h2
+                    style="margin-bottom: 2rem; font-size: 1.5rem; color: var(--text-main); display: flex; align-items: center; gap: 10px;">
+                    <iconify-icon icon="solar:gift-bold-duotone" style="color: var(--accent-primary);"></iconify-icon>
+                    Bônus Exclusivos
+                </h2>
+                <div class="deliverables-grid">
+                    <a href="bonus1.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/bonus1.png');">
+                            <span class="card-badge">BÔNUS 1</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Como reduzir sensação de vazio e solidão</h3>
+                            <p>E técnicas contra colapso mental.</p>
+                        </div>
+                    </a>
+                    <a href="bonus2.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/bonus2.png');">
+                            <span class="card-badge">BÔNUS 2</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Alimentos calmantes e anti-compulsão</h3>
+                            <p>Controle de desejos e inflamação.</p>
+                        </div>
+                    </a>
+                    <a href="bonus3.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/bonus3.png');">
+                            <span class="card-badge">BÔNUS 3</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Áudio guiado anti-pânico</h3>
+                            <p>Desaceleração e relaxamento profundo.</p>
+                        </div>
+                    </a>
+                    <a href="bonus4.html" class="day-card">
+                        <div class="card-image" style="background-image: url('img/bonus4.png');">
+                            <span class="card-badge">BÔNUS 4</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Mapa emocional do ciclo</h3>
+                            <p>Entendendo a queda de serotonina.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script>
+        // Verificação de Login
+        const userEmail = localStorage.getItem('user_email');
+        if (!userEmail) {
+            window.location.href = 'login.html';
+        }
+
+        // Gerenciar Menu Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Fechar menu ao clicar em um link (no mobile)
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Botão Sair
+        document.querySelector('a[href="login.html"]').addEventListener('click', (e) => {
+            localStorage.removeItem('user_email');
+        });
+
+        // Registro do Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js');
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "7 Dias Para Silenciar a TPM Mental",
+  "short_name": "TPM Mental",
+  "description": "Protocolo emocional para silenciar a mente durante a TPM.",
+  "start_url": "login.html",
+  "display": "standalone",
+  "background_color": "#FCFAFC",
+  "theme_color": "#9b6a73",
+  "icons": [
+    {
+      "src": "../app_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

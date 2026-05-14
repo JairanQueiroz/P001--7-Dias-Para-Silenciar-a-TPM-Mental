@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso - 7 Dias Para Silenciar a TPM Mental</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        :root {
+            --accent-primary: #9b6a73;
+            --bg-light: #fdfbfc;
+        }
+        body {
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .login-card {
+            background: #fff;
+            padding: 3.5rem 1.5rem;
+            border-radius: 40px;
+            box-shadow: 0 25px 60px rgba(155, 106, 115, 0.15);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo-icon {
+            font-size: 4.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        p {
+            color: #777;
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 1.3rem;
+            border: 2px solid #f3f0f1;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-sizing: border-box;
+            outline: none;
+            text-align: center;
+            background: #fdfbfc;
+        }
+
+        input[type="email"]:focus {
+            border-color: var(--accent-primary);
+            background: #fff;
+        }
+
+        .btn-enter {
+            background: var(--accent-primary);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 1.3rem;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 12px 30px rgba(155, 106, 115, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        .btn-enter:active {
+            transform: scale(0.96);
+        }
+
+        .footer-text {
+            margin-top: 2.5rem;
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="logo-icon">
+            <iconify-icon icon="solar:heart-lock-bold-duotone"></iconify-icon>
+        </div>
+        <h1>Boas-vindas!</h1>
+        <p>Insira seu e-mail de compra para acessar o protocolo oficial.</p>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Seu e-mail de compra" required>
+            </div>
+            <button type="submit" class="btn-enter">ENTRAR AGORA</button>
+        </form>
+
+        <div class="footer-text">
+            Acesso exclusivo para alunas do método.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            if(email) {
+                localStorage.setItem('user_email', email);
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Registro do Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js');
+            });
+        }
+    </script>
+</body>
+</html>
